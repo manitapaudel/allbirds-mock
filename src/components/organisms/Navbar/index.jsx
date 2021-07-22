@@ -3,7 +3,7 @@ import IconButton from "../../atoms/IconButton";
 import NavLink from "../../atoms/NavLink";
 
 const buttons = [
-  { iconClass: "user-line", title: "User LogIn" },
+  { iconClass: "user-line", title: "Account" },
   { iconClass: "question-line", title: "Help" },
   { iconClass: "shopping-cart-2-line", title: "Cart" },
 ];
@@ -59,12 +59,17 @@ const Navbar = () => {
       <div className={` ${open ? "block" : "hidden"}`}>
         {navLinks.map(({ id, label, href }) => (
           <div
-            className="flex justify-between p-3 border-solid border-b-2 border-gray-300"
+            className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"
             key={id}
           >
             <NavLink href={href}>{label}</NavLink>
             <IconButton title="View More" iconClass="arrow-right-s-line" />
           </div>
+        ))}
+        {buttons.slice(0, 2).map(({title}) => (
+          <div className="flex justify-start py-6 px-10 border-solid border-b-2 border-gray-300">
+          {title}
+        </div>
         ))}
       </div>
     </>

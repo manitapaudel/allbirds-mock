@@ -1,6 +1,6 @@
-const NavLink = ({ href, children }) => {
+const NavLink = ({ href, children, className }) => {
   return (
-    <a className="font-bold font-mono" href={href}>
+    <a className={`font-bold font-mono ${className}`} href={href}>
       {children}
     </a>
   );

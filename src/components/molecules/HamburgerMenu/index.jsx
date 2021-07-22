@@ -1,7 +1,7 @@
 import React from "react";
 import IconButton from "../../atoms/IconButton";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ className }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -12,6 +12,7 @@ const HamburgerMenu = () => {
       onClick={handleOpen}
       title="menu"
       iconClass={open ? "close-line" : "menu-line"}
+      className={`lg:hidden ${className}`}
     />
   );
 };

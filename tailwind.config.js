@@ -17,6 +17,8 @@ module.exports = {
       "7xl": "5rem",
     },
     backgroundImage: (theme) => ({
+      "hero-guy":
+        "url('https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/heroSlide/en-US/images/4FAPq2tREPwjxhL2KRRLB4/1')",
       "hero-himNher":
         "url('https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/heroSlide/en-US/images/1d6fjAytfxv5yNhgqmocf3/1')",
       "hero-summer":

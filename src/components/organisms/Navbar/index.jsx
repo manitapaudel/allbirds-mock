@@ -3,7 +3,6 @@ import IconButton from "../../atoms/IconButton";
 import NavLink from "../../atoms/NavLink";
 import MegaMenu from "../../organisms/MegaMenu";
 
-
 const buttons = [
   { iconClass: "user-line", title: "Account" },
   { iconClass: "question-line", title: "Help" },
@@ -31,21 +30,21 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center bg-white z-10 px-5 py-3 shadow-md sticky top-0">
+      <nav className="flex justify-between items-center bg-white z-10 px-5 py-1 shadow-md sticky top-0">
         <div className="grid place-items-start grid-cols-3 hidden lg:grid">
           {navLinks.slice(0, 3).map(({ id, label, href }) => (
-            <NavLink href={href} className="hidden lg:block" key={id}>
+            <NavLink
+              href={href}
+              className="hidden lg:block"
+              onMouseEnter={label==="Men" ? handleMegaMenu : ""}
+              onMouseLeave={label === "Men" ? handleMegaMenu : ""}
+              key={id}
+            >
               {label}
             </NavLink>
           ))}
         </div>
-        <h1
-          onMouseEnter={handleMegaMenu}
-          onMouseOut={handleMegaMenu}
-          className="font-bold font-mono"
-        >
-          allbirds
-        </h1>
+        <h1 className="font-bold font-mono">allbirds</h1>
         <div className="grid grid-cols-3 place-items-center">
           {navLinks.slice(3, 5).map(({ id, label, href }) => (
             <NavLink href={href} className="hidden lg:block" key={id}>
@@ -89,7 +88,7 @@ const Navbar = () => {
           </div>
         ))}
       </div>
-      <MegaMenu className={megaMenu ? "flex" : "hidden"}/>
+      <MegaMenu className={megaMenu ? "flex" : "hidden"} />
     </>
   );
 };

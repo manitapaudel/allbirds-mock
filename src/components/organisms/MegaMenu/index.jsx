@@ -10,34 +10,35 @@ const categories = [
   {
     title: "Winter",
     items: [
-      { name: "AB", href: "/" },
-      { name: "CD", href: "/" },
-      { name: "EF", href: "/" },
-    ],
-  },
-  {
-    title: "Formal Wear",
-    items: [
-      { name: "GH", href: "/" },
-      { name: "IJ", href: "/" },
-      { name: "KL", href: "/" },
+      { name: "Sandals", href: "/" },
+      { name: "Slippers", href: "/" },
+      { name: "Crocs", href: "/" },
     ],
   },
   {
     title: "Casual Wear",
     items: [
-      { name: "MN", href: "/" },
-      { name: "OP", href: "/" },
-      { name: "QR", href: "/" },
+      { name: "Sandals", href: "/" },
+      { name: "Slippers", href: "/" },
+      { name: "Crocs", href: "/" },
+    ],
+  },
+  {
+    title: "Formal Wear",
+    items: [
+      { name: "Sandals", href: "/" },
+      { name: "Slippers", href: "/" },
+      { name: "Crocs", href: "/" },
     ],
   },
 ];
 
 const MegaMenu = ({ className }) => {
   return (
-    <div className={`bg-white flex justify-evenly p-10 w-full h-auto absolute ${className}`}>
+    <div className={`bg-green-500 text-white flex justify-evenly p-10 w-full h-auto absolute top-14 z-20 ${className}`}>
+      
       {categories.map(({ title, items }) => (
-        <div id={title} className="flex-col justify-between items-center">
+        <div key={title} className="flex-col justify-between items-center">
           <h2>{title}</h2>
           <div className="grid grid-col-1 place-items-center">
             {items.map(({ name, href }) => (

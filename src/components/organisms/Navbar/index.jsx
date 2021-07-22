@@ -67,7 +67,7 @@ const Navbar = () => {
           </div>
         ))}
         {buttons.slice(0, 2).map(({title}) => (
-          <div className="flex justify-start py-6 px-10 border-solid border-b-2 border-gray-300">
+          <div className="flex justify-start py-6 px-10 border-solid border-b-2 border-gray-300" key={title}>
           {title}
         </div>
         ))}

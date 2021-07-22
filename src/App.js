@@ -1,5 +1,6 @@
 import Navbar from "./components/organisms/Navbar";
 import CallToAction from "./components/organisms/CallToAction";
+import ShopCollection from "./components/organisms/ShopCollection";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Navbar />
       <CallToAction />
+      <ShopCollection />
     </div>
   );
 }

@@ -35,7 +35,7 @@ const categories = [
 
 const MegaMenu = ({ className }) => {
   return (
-    <div className={`bg-green-500 text-white flex justify-evenly p-10 w-full h-auto absolute top-14 z-20 ${className}`}>
+    <div className={`bg-green-500 text-white flex justify-evenly p-10 w-full h-auto absolute top-14 right-0 z-20 ${className}`}>
       
       {categories.map(({ title, items }) => (
         <div key={title} className="flex-col justify-between items-center">

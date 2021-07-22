@@ -32,17 +32,37 @@ const Navbar = () => {
     <>
       <nav className="flex justify-between items-center bg-white z-10 px-5 py-1 shadow-md sticky top-0">
         <div className="grid place-items-start grid-cols-3 hidden lg:grid">
-          {navLinks.slice(0, 3).map(({ id, label, href }) => (
+          <div onMouseEnter={handleMegaMenu} onMouseLeave={handleMegaMenu}>
             <NavLink
-              href={href}
-              className="hidden lg:block"
-              onMouseEnter={label==="Men" ? handleMegaMenu : ""}
-              onMouseLeave={label === "Men" ? handleMegaMenu : ""}
-              key={id}
+              href="/"
+              className={`hidden lg:block ${megaMenu ? "bg-green-500" : ""}`}
             >
-              {label}
+              Men
             </NavLink>
-          ))}
+            <MegaMenu className={megaMenu ? "flex" : "hidden"} />
+          </div>
+          <div>
+            <NavLink href="/" className="hidden lg:block">
+              Women
+            </NavLink>
+          </div>
+          <div>
+            <NavLink href="/" className="hidden lg:block">
+              New Arrivals
+            </NavLink>
+          </div>
+          {/* {navLinks.slice(0, 3).map(({ id, label, href }) => (
+            <div
+              key={id}
+              onMouseEnter={label === "Men" ? handleMegaMenu : ""}
+              onMouseLeave={label === "Men" ? handleMegaMenu : ""}
+            >
+              <NavLink href={href} className="hidden lg:block">
+                {label}
+              </NavLink>
+              <MegaMenu className={megaMenu ? "flex" : "hidden"} />
+            </div>
+          ))} */}
         </div>
         <h1 className="font-bold font-mono">allbirds</h1>
         <div className="grid grid-cols-3 place-items-center">
@@ -53,7 +73,7 @@ const Navbar = () => {
           ))}
           <div className="grid grid-cols-3 place-items-center gap-4 hidden lg:grid">
             {buttons.map(({ iconClass, title }) => (
-              <IconButton title={title} iconClass={iconClass} />
+              <IconButton key={title} title={title} iconClass={iconClass} />
             ))}
           </div>
         </div>
@@ -88,7 +108,7 @@ const Navbar = () => {
           </div>
         ))}
       </div>
-      <MegaMenu className={megaMenu ? "flex" : "hidden"} />
+      {/* <MegaMenu className={megaMenu ? "flex" : "hidden"} /> */}
     </>
   );
 };

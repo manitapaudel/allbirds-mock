@@ -56,7 +56,7 @@ const Navbar = () => {
           className={`lg:hidden order-first`}
         />
       </nav>
-      <div className={` ${open ? "block" : "hidden"}`}>
+      <div className={`lg:hidden ${open ? "block" : "hidden"}`}>
         {navLinks.map(({ id, label, href }) => (
           <div
             className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"

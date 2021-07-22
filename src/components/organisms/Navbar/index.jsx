@@ -23,7 +23,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="flex justify-between items-center bg-white z-10 px-5 py-3 sticky top-0">
+      <nav className="flex justify-between items-center bg-white z-10 px-5 py-3 shadow-md sticky top-0">
         <div className="grid place-items-start grid-cols-3 hidden lg:grid">
           {navLinks.slice(0, 3).map(({ id, label, href }) => (
             <NavLink href={href} className="hidden lg:block" key={id}>

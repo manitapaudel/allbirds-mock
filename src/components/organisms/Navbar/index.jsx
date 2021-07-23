@@ -1,6 +1,7 @@
 import React from "react";
 import IconButton from "../../atoms/IconButton";
 import NavLink from "../../atoms/NavLink";
+import ViewMoreButton from "../../atoms/ViewMoreButton";
 import MegaMenu from "../../organisms/MegaMenu";
 
 const buttons = [
@@ -17,6 +18,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const [subMenu, setSubMenu] = React.useState(false);
   const [megaMenu, setMegaMenu] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -26,6 +28,10 @@ const Navbar = () => {
 
   const handleMegaMenu = () => {
     setMegaMenu(!megaMenu);
+  };
+
+  const handleSubMenu = () => {
+    setSubMenu(!subMenu);
   };
 
   return (
@@ -59,20 +65,13 @@ const Navbar = () => {
               New Arrivals
             </NavLink>
           </div>
-          {/* {navLinks.slice(0, 3).map(({ id, label, href }) => (
-            <div
-              key={id}
-              onMouseEnter={label === "Men" ? handleMegaMenu : ""}
-              onMouseLeave={label === "Men" ? handleMegaMenu : ""}
-            >
-              <NavLink href={href} className="hidden lg:block">
-                {label}
-              </NavLink>
-              <MegaMenu className={megaMenu ? "flex" : "hidden"} />
-            </div>
-          ))} */}
         </div>
-        <img src="/allbirds-logo.svg" alt="Allbirds Logo" width="120px" height="34px"/>
+        <img
+          src="/allbirds-logo.svg"
+          alt="Allbirds Logo"
+          width="120px"
+          height="34px"
+        />
         <div className="grid grid-cols-3 place-items-center">
           {navLinks.slice(3, 5).map(({ id, label, href }) => (
             <NavLink
@@ -101,14 +100,41 @@ const Navbar = () => {
           className={`lg:hidden order-first`}
         />
       </nav>
-      <div className={`lg:hidden ${open ? "block" : "hidden"}`}>
+      <div className={`lg:hidden ${open && !subMenu ? "block" : "hidden"}`}>
         {navLinks.map(({ id, label, href }) => (
           <div
             className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"
             key={id}
           >
             <NavLink href={href}>{label}</NavLink>
-            <IconButton title="View More" iconClass="arrow-right-s-line" />
+
+            <ViewMoreButton
+              iconClass={subMenu ? "arrow-left-s-line" : "arrow-right-s-line"}
+              onClick={handleSubMenu}
+            />
+          </div>
+        ))}
+        {buttons.slice(0, 2).map(({ title }) => (
+          <div
+            className="flex justify-start py-6 px-14 border-solid border-b-2 border-gray-300"
+            key={title}
+          >
+            {title}
+          </div>
+        ))}
+      </div>
+      <div className={`lg:hidden ${open && subMenu ? "block" : "hidden"}`}>
+        {navLinks.slice(1, 3).map(({ id, label, href }) => (
+          <div
+            className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"
+            key={id}
+          >
+            <NavLink href={href}>{label}</NavLink>
+
+            <ViewMoreButton
+              iconClass="arrow-left-s-line"
+              onClick={handleSubMenu}
+            />
           </div>
         ))}
         {buttons.slice(0, 2).map(({ title }) => (

@@ -16,7 +16,7 @@ module.exports = {
       "6xl": "4rem",
       "7xl": "5rem",
     },
-    backgroundImage: (theme) => ({
+    backgroundImage: {
       "hero-guy":
         "url('https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/heroSlide/en-US/images/4FAPq2tREPwjxhL2KRRLB4/1')",
       "hero-himNher":
@@ -25,7 +25,7 @@ module.exports = {
         "url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80')",
       "hero-winter":
         "url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80')",
-    }),
+    },
   },
   variants: {
     extend: {},

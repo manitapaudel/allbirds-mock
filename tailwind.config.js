@@ -26,6 +26,9 @@ module.exports = {
       "hero-winter":
         "url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80')",
     },
+    fontFamily: {
+      courier: ["Courier Prime"],
+    },
   },
   variants: {
     extend: {},

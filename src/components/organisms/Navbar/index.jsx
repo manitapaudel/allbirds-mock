@@ -35,19 +35,27 @@ const Navbar = () => {
           <div onMouseEnter={handleMegaMenu} onMouseLeave={handleMegaMenu}>
             <NavLink
               href="/"
-              className={`hidden lg:block ${megaMenu ? "bg-green-500 text-white" : ""}`}
+              className={`hidden lg:block ${
+                megaMenu ? "bg-green-500 text-white" : ""
+              }`}
             >
               Men
             </NavLink>
             <MegaMenu className={megaMenu ? "flex" : "hidden"} />
           </div>
           <div>
-            <NavLink href="/" className="hidden lg:block hover:bg-green-500 hover:text-white">
+            <NavLink
+              href="/"
+              className="hidden lg:block hover:bg-green-500 hover:text-white"
+            >
               Women
             </NavLink>
           </div>
           <div>
-            <NavLink href="/" className="hidden lg:block hover:bg-green-500 hover:text-white">
+            <NavLink
+              href="/"
+              className="hidden lg:block hover:bg-green-500 hover:text-white"
+            >
               New Arrivals
             </NavLink>
           </div>
@@ -64,10 +72,14 @@ const Navbar = () => {
             </div>
           ))} */}
         </div>
-        <h1 className="font-bold font-mono text-h1">allbirds</h1>
+        <img src="/allbirds-logo.svg" alt="Allbirds Logo" width="120px" height="34px"/>
         <div className="grid grid-cols-3 place-items-center">
           {navLinks.slice(3, 5).map(({ id, label, href }) => (
-            <NavLink href={href} className="hidden lg:block hover:bg-green-500 hover:text-white" key={id}>
+            <NavLink
+              href={href}
+              className="hidden lg:block hover:bg-green-500 hover:text-white"
+              key={id}
+            >
               {label}
             </NavLink>
           ))}

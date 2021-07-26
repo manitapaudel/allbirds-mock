@@ -9,6 +9,13 @@ const buttons = [
   { iconClass: "question-line", title: "Help" },
   { iconClass: "shopping-cart-2-line", title: "Cart" },
 ];
+
+const mens = [
+  { id: 0, label: "Shoes", href: "/" },
+  { id: 1, label: "Apparel", href: "/" },
+  { id: 2, label: "Accessories", href: "/" },
+  { id: 3, label: "Featured", href: "/" },
+];
 const navLinks = [
   { id: 0, label: "Men", href: "/" },
   { id: 1, label: "Women", href: "/" },
@@ -109,7 +116,7 @@ const Navbar = () => {
             <NavLink href={href}>{label}</NavLink>
 
             <ViewMoreButton
-              iconClass={subMenu ? "arrow-left-s-line" : "arrow-right-s-line"}
+              iconClass="arrow-right-s-line"
               onClick={handleSubMenu}
             />
           </div>
@@ -124,27 +131,29 @@ const Navbar = () => {
         ))}
       </div>
       <div className={`lg:hidden ${open && subMenu ? "block" : "hidden"}`}>
-        {navLinks.slice(1, 3).map(({ id, label, href }) => (
-          <div
-            className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"
-            key={id}
-          >
-            <NavLink href={href}>{label}</NavLink>
+        <div className="flex justify-between items-center bg-gray-200  py-2 px-12">
+          <ViewMoreButton
+            iconClass="arrow-left-s-line"
+            onClick={handleSubMenu}
+          />
+          <p className="font-bold font-courier">Men</p>
+          <p></p>
+        </div>
+        <div>
+          {mens.slice(0, mens.length).map(({ id, label, href }) => (
+            <div
+              className="flex justify-between items-center py-3 px-10 border-solid border-b-2 border-gray-300"
+              key={id}
+            >
+              <NavLink href={href}>{label}</NavLink>
 
-            <ViewMoreButton
-              iconClass="arrow-left-s-line"
-              onClick={handleSubMenu}
-            />
-          </div>
-        ))}
-        {buttons.slice(0, 2).map(({ title }) => (
-          <div
-            className="flex justify-start py-6 px-14 border-solid border-b-2 border-gray-300"
-            key={title}
-          >
-            {title}
-          </div>
-        ))}
+              <ViewMoreButton
+                iconClass="arrow-right-s-line"
+                onClick={handleSubMenu}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

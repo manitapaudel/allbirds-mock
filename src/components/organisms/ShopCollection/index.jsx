@@ -36,37 +36,36 @@ const items = [
   {
     id: 3,
     href: "/",
-    category: "Travel Essentials",
-    description:
-      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+    category: "Running Shoes",
+    description: "The best shoes for running your errands, or simply run.",
     imageSrc:
-      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/3YdziwVyNdpFDs11yrjwSp/2",
     alt: "A person showing his shoes",
   },
   {
     id: 4,
     href: "/",
-    category: "Travel Essentials",
+    category: "Men's Shoes",
     description:
-      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+      "We've categorized them under men's but they're actually gender neutral. Wear them without a worry!",
     imageSrc:
-      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/1pbT8yieU1eVm3Yhjh55vV/1",
     alt: "A person showing his shoes",
   },
   {
     id: 5,
     href: "/",
-    category: "Travel Essentials",
+    category: "Socks",
     description:
-      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+      "Who doesn't love a pair of comfy socks? Get your favourite pair(s) within a week.",
     imageSrc:
-      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/2wZcLJMBdgn9pWXt2rLChu/2",
     alt: "A person showing his shoes",
   },
 ];
 
 const ShopCollection = () => {
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = React.useState(2);
   const [prev, setPrev] = React.useState(null);
 
   const length = items.length;
@@ -77,12 +76,12 @@ const ShopCollection = () => {
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
-    setPrev(true);
+    setPrev("prev");
   };
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-    setPrev(false);
+    setPrev("next");
   };
 
   console.log(current);
@@ -95,23 +94,21 @@ const ShopCollection = () => {
         <IconButton
           title="Previous"
           iconClass="arrow-left-circle-fill text-green-600"
-          className="absolute z-10"
+          className={`absolute z-10`}
           onClick={prevSlide}
         />
-        {items.map(({ id, href, category, description, imageSrc }) => (
-          <ShoppingCard
-            key={id}
-            href={href}
-            category={category}
-            description={description}
-            imageSrc={imageSrc}
-            className={`transition-all ease-in-out duration-1000 transform slide ${
-              prev
-                ? "-translate-x-full"
-                : "translate-x-full"
-            }`}
-          />
-        ))}
+        {items
+          .slice(current - 2, current + 1)
+          .map(({ id, href, category, description, imageSrc }) => (
+            <ShoppingCard
+              key={id}
+              href={href}
+              category={category}
+              description={description}
+              imageSrc={imageSrc}
+              className={`transition-all ease-in-out duration-1000 transform slide`}
+            />
+          ))}
         <IconButton
           title="Next"
           iconClass="arrow-right-circle-fill text-green-600"

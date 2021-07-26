@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <>
+    <div>
       <nav className="flex justify-between items-center bg-white z-10 px-5 py-1 shadow-md sticky top-0">
         <div className="hidden lg:grid place-items-start grid-cols-3 ">
           <div onMouseEnter={handleMegaMenu} onMouseLeave={handleMegaMenu}>
@@ -107,6 +107,7 @@ const Navbar = () => {
           className={`lg:hidden order-first`}
         />
       </nav>
+      <div className="grid grid-col-1 overflow-hidden">
       <div className={`lg:hidden ${open && !subMenu ? "block" : "hidden"}`}>
         {navLinks.map(({ id, label, href }) => (
           <div
@@ -155,7 +156,8 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
+    </div>
   );
 };
 

@@ -1,6 +1,15 @@
-const ShoppingCard = ({ href, alt, category, description, imageSrc }) => {
+const ShoppingCard = ({
+  href,
+  alt,
+  category,
+  description,
+  imageSrc,
+  className = "",
+}) => {
   return (
-    <div className="flex-col h-auto w-1/4 shadow-lg overflow-hidden">
+    <div
+      className={`flex-col flex-shrink-0 h-auto w-1/4 shadow-lg overflow-hidden ${className}`}
+    >
       <a href={href}>
         <img
           src={imageSrc}

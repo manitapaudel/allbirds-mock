@@ -1,4 +1,6 @@
+import React from "react";
 import ShoppingCard from "../../atoms/Card/ShoppingCard";
+import IconButton from "../../atoms/IconButton";
 
 const items = [
   {
@@ -31,15 +33,71 @@ const items = [
       "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
     alt: "A person showing his shoes",
   },
+  {
+    id: 3,
+    href: "/",
+    category: "Travel Essentials",
+    description:
+      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+    imageSrc:
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+    alt: "A person showing his shoes",
+  },
+  {
+    id: 4,
+    href: "/",
+    category: "Travel Essentials",
+    description:
+      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+    imageSrc:
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+    alt: "A person showing his shoes",
+  },
+  {
+    id: 5,
+    href: "/",
+    category: "Travel Essentials",
+    description:
+      "Dreaming of someplace new? So are these easy, pack-and-go picks.",
+    imageSrc:
+      "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1200,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/carouselCard/en-US/images/22CPK93OfWiUuMT9t07ITw/2",
+    alt: "A person showing his shoes",
+  },
 ];
 
 const ShopCollection = () => {
+  const [current, setCurrent] = React.useState(0);
+  const [prev, setPrev] = React.useState(null);
+
+  const length = items.length;
+
+  if (!Array.isArray(items) || length <= 0) {
+    return null;
+  }
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+    setPrev(true);
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+    setPrev(false);
+  };
+
+  console.log(current);
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-10 overflow-hidden">
       <h2 className="text-left font-bold font-mono pl-5 mb-5">
         Shop The Collections
       </h2>
-      <div className="flex justify-between">
+      <div className="flex relative justify-between items-center">
+        <IconButton
+          title="Previous"
+          iconClass="arrow-left-circle-fill text-green-600"
+          className="absolute z-10"
+          onClick={prevSlide}
+        />
         {items.map(({ id, href, category, description, imageSrc }) => (
           <ShoppingCard
             key={id}
@@ -47,8 +105,19 @@ const ShopCollection = () => {
             category={category}
             description={description}
             imageSrc={imageSrc}
+            className={`transition-all ease-in-out duration-1000 transform slide ${
+              prev
+                ? "-translate-x-full"
+                : "translate-x-full"
+            }`}
           />
         ))}
+        <IconButton
+          title="Next"
+          iconClass="arrow-right-circle-fill text-green-600"
+          className="absolute z-10 right-0"
+          onClick={nextSlide}
+        />
       </div>
     </div>
   );

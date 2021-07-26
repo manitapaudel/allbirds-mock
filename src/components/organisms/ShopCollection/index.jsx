@@ -93,7 +93,7 @@ const ShopCollection = () => {
       <div className="flex relative justify-between items-center">
         <IconButton
           title="Previous"
-          iconClass="arrow-left-circle-fill text-green-600"
+          iconClass="arrow-left-circle-fill text-green-500 p-3 bg-white hover:bg-green-500 hover:text-white"
           className={`absolute z-10`}
           onClick={prevSlide}
         />
@@ -111,7 +111,7 @@ const ShopCollection = () => {
           ))}
         <IconButton
           title="Next"
-          iconClass="arrow-right-circle-fill text-green-600"
+          iconClass="arrow-right-circle-fill text-green-500  p-3 bg-white hover:bg-green-500 hover:text-white"
           className="absolute z-10 right-0"
           onClick={nextSlide}
         />

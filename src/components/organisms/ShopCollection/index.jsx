@@ -75,12 +75,12 @@ const ShopCollection = () => {
   }
 
   const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    setCurrent(current === 2 ? length - 1 : current - 1);
     setPrev("prev");
   };
 
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+    setCurrent(current === length - 1 ? 2 : current + 1);
     setPrev("next");
   };
 

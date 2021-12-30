@@ -1,6 +1,7 @@
 import React from "react";
 import ShoppingCard from "../../atoms/Card/ShoppingCard";
 import IconButton from "../../atoms/IconButton";
+import SectionHeading from "../../atoms/SectionHeading";
 
 const items = [
   {
@@ -87,9 +88,9 @@ const ShopCollection = () => {
   console.log(current);
   return (
     <div className="container mx-auto my-10 overflow-hidden">
-      <h2 className="text-left font-bold font-mono pl-5 mb-5">
+      <SectionHeading className="text-left pl-5">
         Shop The Collections
-      </h2>
+      </SectionHeading>
       <div className="flex relative justify-between items-center">
         <IconButton
           title="Previous"

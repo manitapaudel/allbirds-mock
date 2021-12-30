@@ -1,4 +1,4 @@
-import Button from "../../atoms/Button";
+import SecondaryButton from "../../atoms/Button/SecondaryButton";
 
 const CallToAction = () => {
   return (
@@ -10,8 +10,8 @@ const CallToAction = () => {
           </h2>
           <p className="text-white font-bold ">Your favorite summer shoes in new colors</p>
           <div className="mt-28">
-            <Button className="mr-3">Shop Men</Button>
-            <Button className="ml-3">Shop Women</Button>
+            <SecondaryButton className="mr-3">Shop Men</SecondaryButton>
+            <SecondaryButton className="ml-3">Shop Women</SecondaryButton>
           </div>
         </div>
       </div>
